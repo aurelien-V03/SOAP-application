@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<schemas xmlns='http://xml.netbeans.org/schema/JAXBWizConfig' destdir='build/generated-sources/jaxb' projectName='CabinetInfirmierServer' version='1.0'>
+	<schema type='-xmlschema' package='' name='CabinetBinding'>
+		<xjc-options>
+			<xjc-option name='-verbose' value='true'/>
+			<xjc-option name='-extension' value='true'/>
+		</xjc-options>
+		<schema-sources>
+			<schema-source location='src/conf/xml-resources/jaxb/CabinetBinding/cabinet.xsd' origLocation='src/java/fr/ujf_grenoble/l3miage/medical/resources/cabinet.xsd'/>
+		</schema-sources>
+		<bindings>
+			<binding origLocation='src/java/fr/ujf_grenoble/l3miage/medical/resources/XmlRootBinding.xml' location='src/conf/xml-resources/jaxb/CabinetBinding/XmlRootBinding.xml'/>
+		</bindings>
+		<catalog/>
+	</schema>
+</schemas>

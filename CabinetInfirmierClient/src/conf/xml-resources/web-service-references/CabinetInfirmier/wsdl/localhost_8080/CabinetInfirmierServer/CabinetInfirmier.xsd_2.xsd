@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.4.3 (RELEASE-2.4.3-ad3323c; 2019-01-21T17:46:06+0000) JAXWS-RI/2.3.2 JAXWS-API/2.3.2 JAXB-RI/2.3.2 JAXB-API/2.3.2 git-revision#unknown. --><xs:schema xmlns:tns="http://medical.l3miage.ujf_grenoble.fr/" xmlns:ns1="http://www.ujf-grenoble.fr/l3miage/medical" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://medical.l3miage.ujf_grenoble.fr/">
+
+<xs:import namespace="http://www.ujf-grenoble.fr/l3miage/medical" schemaLocation="http://localhost:8080/CabinetInfirmierServer/CabinetInfirmier?xsd=1"/>
+
+<xs:element name="getCoutPatient" type="tns:getCoutPatient"/>
+
+<xs:element name="getCoutPatientResponse" type="tns:getCoutPatientResponse"/>
+
+<xs:element name="getListePatients" type="tns:getListePatients"/>
+
+<xs:element name="getListePatientsResponse" type="tns:getListePatientsResponse"/>
+
+<xs:element name="getListePatientsStr" type="tns:getListePatientsStr"/>
+
+<xs:element name="getListePatientsStrResponse" type="tns:getListePatientsStrResponse"/>
+
+<xs:element name="getNomCabinet" type="tns:getNomCabinet"/>
+
+<xs:element name="getNomCabinetResponse" type="tns:getNomCabinetResponse"/>
+
+<xs:element name="getStrLength" type="tns:getStrLength"/>
+
+<xs:element name="getStrLengthResponse" type="tns:getStrLengthResponse"/>
+
+<xs:element name="hello" type="tns:hello"/>
+
+<xs:element name="helloResponse" type="tns:helloResponse"/>
+
+<xs:complexType name="getCoutPatient">
+<xs:sequence>
+<xs:element name="id" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getCoutPatientResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getStrLength">
+<xs:sequence>
+<xs:element name="p1" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getStrLengthResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="hello">
+<xs:sequence>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="helloResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getNomCabinet">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getNomCabinetResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getListePatients">
+<xs:sequence>
+<xs:element name="id" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getListePatientsResponse">
+<xs:sequence>
+<xs:element name="return" type="ns1:Patient" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getListePatientsStr">
+<xs:sequence>
+<xs:element name="id" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getListePatientsStrResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

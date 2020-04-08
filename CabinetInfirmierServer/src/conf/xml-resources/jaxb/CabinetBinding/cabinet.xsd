@@ -1,0 +1,156 @@
+<?xml version="1.0"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<xs:schema version="1.0"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified"
+           targetNamespace="http://www.ujf-grenoble.fr/l3miage/medical"
+           xmlns="http://www.ujf-grenoble.fr/l3miage/medical"
+>
+    
+    <!-- ELEMENT RACINE : cotient l'ensemble du cabinet -->
+    <xs:element name="cabinet" type="Cabinet"/>  
+    
+    <!-- Cabinet : Nom du cabinet + son adresse + liste des infirmiers + liste des patients -->
+    <xs:complexType name="Cabinet">
+        <xs:sequence>
+            <xs:element name="nom" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="adresse" type="Adresse" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="infirmiers" type="Infirmiers" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="patients" type="Patients" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- Adresse (du cabinet ou d'un patient) element "étage" facultatif -->
+    <xs:complexType name="Adresse">
+        <xs:sequence>
+             <xs:element name="étage" type="xs:int" minOccurs="0"/>
+            <xs:element name="numéro" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="rue" type="xs:string"/>
+            <xs:element name="ville" type="xs:string"/>
+            <xs:element name="codePostal" type="formatCodePostal"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- Liste d'infirmier  -->
+    <xs:complexType name="Infirmiers">
+        <xs:sequence>
+            <xs:element name="infirmier" type="Infirmier" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- Liste des patients -->
+    <xs:complexType name="Patients">
+        <xs:sequence>
+            <xs:element name="patient" type="Patient" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- Un infirmier (nom + prénom + photo + id )-->
+    <xs:complexType name="Infirmier">
+        <xs:sequence>
+            <xs:element name="nom" type="formatString"/>
+            <xs:element name="prénom" type="formatString"/>
+            <xs:element name="photo" type="formatPhotoPng"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="formatIdInfirmier" />
+    </xs:complexType>
+    
+    <!-- Un patient (nom + prénom + sexe + numéro + Adresse + Visite-->
+    <xs:complexType name="Patient">
+        <xs:sequence>
+            <xs:element name="nom" type="xs:string"/>
+            <xs:element name="prénom" type="xs:string"/>
+            <xs:element name="sexe" type="formatSexe"/>
+            <xs:element name="naissance" type="xs:date"/>
+            <xs:element name="numéro" type="formatNumeroSecu"/>
+            <xs:element name="adresse" type="Adresse"/>
+            <xs:element name="visite" type="Visite"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- 1 Visite (date-->
+    <xs:complexType name="Visite">
+        <xs:sequence>
+            <xs:element name="acte">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:int" name="id"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="date" type="xs:string"/>
+        <xs:attribute name="intervenant" type="xs:int"/>
+    </xs:complexType>
+    
+    
+    <!-- TYPES SIMPLES -->
+    
+    <!-- formatPhotoPng = une chaine de caractere servant a identifier un fichier doit etre de la forme ***.jpg ou ***.png -->
+    <xs:simpleType name="formatPhotoPng">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[a-zA-Z0-9]+[.](([j][p][g])|([p][n][g]))"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <!-- formatCodePostal = un code postal en france est une suite de 5 entiers -->
+    <xs:simpleType name="formatCodePostal">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]{5}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    
+    <!-- formatIdInfirmier = l'attribut id d'un infirmier est de la forme XXX avec x = 0 à 9 -->
+    <xs:simpleType name="formatIdInfirmier">
+        <xs:restriction base="xs:int">
+            <xs:pattern value="[0-9]{3}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <!-- formatString = définit une chaine de caractere de longueur entre 0 et 50 -->
+    <xs:simpleType name="formatString">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[a-zA-Zé]{1,50}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <!-- formatSexe = correspont au sexe de quelqun et a 2 valeurs (M = masculin OU F = feminin) -->
+    <xs:simpleType name="formatSexe">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="M"/>
+            <xs:enumeration value="F"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <!--  formatNumeroSecu = corresponr au numero de secu d'un patient = 15 chiffres -->
+    <xs:simpleType name="formatNumeroSecu">
+        <xs:restriction base="xs:long">
+            <xs:pattern value="[1 | 2 ][0-9]{5}[0-9]{9}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <!-- formatEtage = intervalle d'un étage = 0 - 50 -->
+    <xs:simpleType name="formatEtage">
+        <xs:restriction base="xs:int">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="50"/>
+        </xs:restriction>
+    </xs:simpleType>
+        
+    
+    
+    
+    
+    
+    
+    
+    
+</xs:schema>

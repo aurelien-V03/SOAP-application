@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.4.3 (RELEASE-2.4.3-ad3323c; 2019-01-21T17:46:06+0000) JAXWS-RI/2.3.2 JAXWS-API/2.3.2 JAXB-RI/2.3.2 JAXB-API/2.3.2 git-revision#unknown. --><xs:schema xmlns:tns="http://www.ujf-grenoble.fr/l3miage/medical" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" version="1.0" targetNamespace="http://www.ujf-grenoble.fr/l3miage/medical">
+
+<xs:complexType name="Patient">
+<xs:sequence>
+<xs:element name="nom" type="xs:string"/>
+<xs:element name="prénom" type="xs:string"/>
+<xs:element name="sexe" type="tns:formatSexe"/>
+<xs:element name="naissance" type="xs:date"/>
+<xs:element name="numéro" type="xs:long"/>
+<xs:element name="adresse" type="tns:Adresse"/>
+<xs:element name="visite" type="tns:Visite"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="Adresse">
+<xs:sequence>
+<xs:element name="étage" type="xs:int" minOccurs="0"/>
+<xs:element name="numéro" type="xs:string" minOccurs="0"/>
+<xs:element name="rue" type="xs:string"/>
+<xs:element name="ville" type="xs:string"/>
+<xs:element name="codePostal" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="Visite">
+<xs:sequence>
+<xs:element name="acte">
+<xs:complexType>
+<xs:simpleContent>
+<xs:extension base="xs:string">
+<xs:attribute name="id" type="xs:int"/>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+<xs:attribute name="date" type="xs:string"/>
+<xs:attribute name="intervenant" type="xs:int"/>
+</xs:complexType>
+
+<xs:simpleType name="formatSexe">
+<xs:restriction base="xs:string">
+<xs:enumeration value="M"/>
+<xs:enumeration value="F"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:schema>

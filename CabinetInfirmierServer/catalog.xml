@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="file:/C:/Users/Aurel/OneDrive/Documents/NetBeansProjects/CabinetInfirmierServer/src/java/fr/ujf_grenoble/l3miage/medical/resources/cabinet.xsd" uri="src/conf/xml-resources/jaxb/CabinetBinding/cabinet.xsd"/>
+    <system systemId="file:/C:/Users/Aurel/OneDrive/Documents/NetBeansProjects/CabinetInfirmierServer/src/java/fr/ujf_grenoble/l3miage/medical/resources/XmlRootBinding.xml" uri="src/conf/xml-resources/jaxb/CabinetBinding/XmlRootBinding.xml"/>
+</catalog>

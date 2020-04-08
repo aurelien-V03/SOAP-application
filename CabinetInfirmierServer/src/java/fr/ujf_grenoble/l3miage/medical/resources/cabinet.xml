@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<cbn:cabinet  xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+          xmlns:cbn='http://www.ujf-grenoble.fr/l3miage/medical'
+         xsi:schemaLocation='http://www.ujf-grenoble.fr/l3miage/medical cabinet.xsd'>
+
+    <cbn:nom>Soins à Grenoble</cbn:nom>
+    <cbn:adresse>                         
+        <cbn:numéro>60</cbn:numéro>
+        <cbn:rue>cbn:rue de la Chimie</cbn:rue>
+        <cbn:ville>Grenoble</cbn:ville>
+        <cbn:codePostal>38041</cbn:codePostal>
+    </cbn:adresse>
+    
+    <cbn:infirmiers>                        
+        <cbn:infirmier id="001">
+            <cbn:nom>Fréchie</cbn:nom>
+            <cbn:prénom>Sarah</cbn:prénom>
+            <cbn:photo>sarah.png</cbn:photo>
+        </cbn:infirmier>
+        
+        <cbn:infirmier id="002">
+            <cbn:nom>Stické</cbn:nom>
+            <cbn:prénom>Sophie</cbn:prénom>
+            <cbn:photo>sophie.png</cbn:photo>
+        </cbn:infirmier>
+        
+        <cbn:infirmier id="003">
+            <cbn:nom>Ochon</cbn:nom>
+            <cbn:prénom>Paul</cbn:prénom>
+            <cbn:photo>paul.png</cbn:photo>
+        </cbn:infirmier>
+    
+    </cbn:infirmiers>
+    
+    <cbn:patients>
+         <cbn:patient>
+            <!-- Homme, né en aout 98 en France, à Marseille (n°55 en bouches du rhone) 458e cbn:naissance -->
+            <cbn:nom>Alécole</cbn:nom>              
+            <cbn:prénom>Yvon</cbn:prénom>
+            <cbn:sexe>M</cbn:sexe>
+            <cbn:naissance>1998-08-02</cbn:naissance>
+            <cbn:numéro>198081305545892</cbn:numéro>
+            <cbn:adresse>
+                <cbn:étage>6</cbn:étage>
+                <cbn:numéro>50</cbn:numéro>
+                <cbn:rue>avenue Félix Viallet</cbn:rue>
+                <cbn:ville>Grenoble</cbn:ville>
+                <cbn:codePostal>38031</cbn:codePostal>              
+            </cbn:adresse>
+            <cbn:visite date="2015-12-08" intervenant="001">
+                <cbn:acte id="109"/>
+            </cbn:visite>
+        </cbn:patient>           
+        <cbn:patient>
+            <!-- Elvire est née le 08 mars 82 en France, à Lyon (n° 23 dans le rhône), il s'agissait de la 52e cbn:naissance dans cette cbn:ville -->
+            <cbn:nom>Orouge</cbn:nom>
+            <cbn:prénom>Elvire</cbn:prénom>
+            <cbn:sexe>F</cbn:sexe>
+            <cbn:naissance>1982-03-08</cbn:naissance>
+            <cbn:numéro>282036938105245</cbn:numéro>
+            <cbn:adresse>
+                <cbn:rue>Rond-Point de la Croix de Vie
+                </cbn:rue>
+                <cbn:ville>La Tronche</cbn:ville>
+                <cbn:codePostal>38700</cbn:codePostal>              
+            </cbn:adresse>
+            <cbn:visite date="2015-12-08" intervenant="002">
+                <cbn:acte id="300"/>
+            </cbn:visite>
+        </cbn:patient>           
+        <cbn:patient>
+            <!-- Oscare est née le 25 mars 75 en France, à Chambéry (n° 65 dans la Savoie) Il s'agissait de la 692e cbn:naissance.-->
+            <cbn:nom>Pien</cbn:nom>
+            <cbn:prénom>Oscare</cbn:prénom>
+            <cbn:sexe>F</cbn:sexe>
+            <cbn:naissance>1975-03-25</cbn:naissance>
+            <cbn:numéro>275037306569202</cbn:numéro>
+            <cbn:adresse>
+                <cbn:rue>cbn:rue Casimir Brenier  </cbn:rue>
+                <cbn:ville>Grenoble</cbn:ville>
+                <cbn:codePostal>38000</cbn:codePostal>              
+            </cbn:adresse>
+            <cbn:visite date="2015-12-08" >
+                <cbn:acte id="104"/>
+            </cbn:visite>
+        </cbn:patient>             
+        <cbn:patient>
+            <!--Xavier est un petit garçon de 4 ans, né le 02 août 2011 en France, à Bordeaux (n° 63 dans la Gironde). Il s'agi de la 35e cbn:naissance.-->
+            <cbn:nom>Kapoëtla</cbn:nom>
+            <cbn:prénom>Xavier</cbn:prénom>
+            <cbn:sexe>M</cbn:sexe>
+            <cbn:naissance>2011-08-02</cbn:naissance>
+            <cbn:numéro>111083306303521</cbn:numéro>
+            <cbn:adresse>
+            
+                <cbn:numéro>25</cbn:numéro>
+                <cbn:rue>cbn:rue des Martyrs</cbn:rue>
+                <cbn:ville>Grenoble</cbn:ville>
+                <cbn:codePostal>38042</cbn:codePostal>              
+            </cbn:adresse>
+            <cbn:visite date="2015-12-08">
+                <cbn:acte id="111"/>
+            </cbn:visite>
+        </cbn:patient>     
+    </cbn:patients>
+</cbn:cabinet>
